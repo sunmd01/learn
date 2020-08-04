@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     id("org.springframework.boot")
 
@@ -7,13 +5,20 @@ plugins {
     kotlin("plugin.spring")
 }
 
+group = "com.example"
+version = "0.0.1-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
+
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter")
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    //spring
     implementation("org.springframework.boot:spring-boot-starter-web")
-    runtimeOnly("mysql:mysql-connector-java")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
 
     // kotlin
+    implementation(kotlin("stdlib"))
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
@@ -25,4 +30,3 @@ dependencies {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
 }
-
